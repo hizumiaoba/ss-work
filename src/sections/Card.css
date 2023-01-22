@@ -1,0 +1,17 @@
+table {
+    margin: 20px auto;
+}
+
+@media screen and (max-width: 1000px) {
+    .last td:last-child {
+        border-bottom: solid 1px #ccc;
+        width: 100%;
+    }
+    .tbl-r02 {
+        width: 80%;
+    }
+    .tbl-r02 th,
+    .tbl-r02 td {
+        display: block;
+    }
+}

@@ -21,7 +21,7 @@ export const Card = () => {
     fetchWork().then((works) => {
       setWorks(works);
     });
-  });
+  }, []);
 
   const components: Array<JSX.Element> = works.map((work: WorkInfo, i: number) => {
     const tdStyle = {
@@ -30,7 +30,7 @@ export const Card = () => {
       backgroundColor: i % 2 === 0 ? "#242424" : "#0f0f0f",
     }
     return (
-      <tbody>
+      <tbody key={i}>
         <tr>
           <td style={tdStyle}><a href={"https://www.pixiv.net/novel/show.php?id=" + work.id} target={"_blank"} rel={"noreferrer noopener"}>{work.title}</a></td>
           <td style={tdStyle}>{work.date}</td>

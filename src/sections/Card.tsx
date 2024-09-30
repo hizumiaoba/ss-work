@@ -11,13 +11,12 @@ export const Card = () => {
     color: "#333",
   }
 
-  const fetchWork = async () => {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbzF5mes7t6v65e-HxmCwFd_cbqcKV3ZgcMpuazKIGDuiAAlMH6SPROdNaRZyfm1gdEDjQ/exec");
-    return (await response.json()) as Array<WorkInfo>;
-  };
-
   const [works, setWorks] = React.useState<Array<WorkInfo>>([]);
   React.useEffect(() => {
+    const fetchWork = async () => {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbzF5mes7t6v65e-HxmCwFd_cbqcKV3ZgcMpuazKIGDuiAAlMH6SPROdNaRZyfm1gdEDjQ/exec");
+      return (await response.json()) as Array<WorkInfo>;
+    };
     fetchWork().then((works) => {
       setWorks(works);
     });
